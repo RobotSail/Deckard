@@ -42,10 +42,10 @@ import os
 #import shutil
 
 if len(sys.argv) != 3:
-    print >> sys.stderr, "Usage: ", sys.argv[0], " <clone report> <lang>"
+    print("Usage: ", sys.argv[0], " <clone report> <lang>", file=sys.stderr)
     sys.exit(1)
 elif sys.argv[2] != 'c' and sys.argv[2] != 'java' and sys.argv[2] != 'php':
-    print >> sys.stderr, "We only support c, java, and php for now"
+    print("We only support c, java, and php for now", file=sys.stderr)
     sys.exit(1)
 
 # check executable paths
@@ -54,7 +54,7 @@ if filterpath==None:
     filterpath = '.'
 filterpath = filterpath + '/src/main'
 if not os.path.exists(filterpath):
-    print >> sys.stderr, "cannot find bugfilters in", filterpath
+    print("cannot find bugfilters in", filterpath, file=sys.stderr)
     sys.exit(1)
 
 def readclusters( file ):
@@ -94,7 +94,7 @@ for cluster in clusters:
     elif sys.argv[2] == 'php':
         os.system(filterpath + '/phpbugfilters 2 < ' + sys.argv[1] + '.clustertmp')
     else:
-        print >> sys.stderr, "parameter error for bugfiltering."
+        print("parameter error for bugfiltering.", file=sys.stderr)
         sys.exit(1)
 #    os.system('cbugfilters < ' + sys.argv[1] + '.clustertmp >> ' + sys.argv[1] + '.bug')
 #    os.system('echo "" >> ' + sys.argv[1] + '.bug')

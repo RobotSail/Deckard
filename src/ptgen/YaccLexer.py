@@ -4,10 +4,6 @@ import sys
 import antlr
 
 version = sys.version.split()[0]
-if version < '2.2.1':
-    False = 0
-if version < '2.3':
-    True = not False
 ### header action >>> 
 
 ### header action <<< 
@@ -147,10 +143,10 @@ class Lexer(antlr.CharScanner) :
                             ### return token to caller
                             return self._returnToken
                         ### handle lexical errors ....
-                        except antlr.RecognitionException, e:
+                        except antlr.RecognitionException as e:
                             raise antlr.TokenStreamRecognitionException(e)
                     ### handle char stream errors ...
-                    except antlr.CharStreamException,cse:
+                    except antlr.CharStreamException as cse:
                         if isinstance(cse, antlr.CharStreamIOException):
                             raise antlr.TokenStreamIOException(cse.io)
                         else:
@@ -532,35 +528,35 @@ class Lexer(antlr.CharScanner) :
 ### generate bit set
 def mk_tokenSet_0(): 
     ### var1
-    data = [ 0L, 576460743847706622L, 0L, 0L]
+    data = [ 0, 576460743847706622, 0, 0]
     return data
 _tokenSet_0 = antlr.BitSet(mk_tokenSet_0())
 
 ### generate bit set
 def mk_tokenSet_1(): 
     ### var1
-    data = [ -549755813889L, -268435457L, 0L, 0L]
+    data = [ -549755813889, -268435457, 0, 0]
     return data
 _tokenSet_1 = antlr.BitSet(mk_tokenSet_1())
 
 ### generate bit set
 def mk_tokenSet_2(): 
     ### var1
-    data = [ -17179869185L, -1L, 0L, 0L]
+    data = [ -17179869185, -1, 0, 0]
     return data
 _tokenSet_2 = antlr.BitSet(mk_tokenSet_2())
 
 ### generate bit set
 def mk_tokenSet_3(): 
     ### var1
-    data = [ -9217L, -1L, 0L, 0L]
+    data = [ -9217, -1, 0, 0]
     return data
 _tokenSet_3 = antlr.BitSet(mk_tokenSet_3())
 
 ### generate bit set
 def mk_tokenSet_4(): 
     ### var1
-    data = [ -4398046520321L, -1L, 0L, 0L]
+    data = [ -4398046520321, -1, 0, 0]
     return data
 _tokenSet_4 = antlr.BitSet(mk_tokenSet_4())
     
@@ -573,8 +569,8 @@ if __name__ == '__main__' :
     ### create lexer - shall read from stdin
     try:
         for token in YaccLexer.Lexer():
-            print token
+            print(token)
             
-    except antlr.TokenStreamException, e:
-        print "error: exception caught while lexing: ", e
+    except antlr.TokenStreamException as e:
+        print("error: exception caught while lexing: ", e)
 ### __main__ header action <<< 

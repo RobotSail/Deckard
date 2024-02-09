@@ -44,7 +44,7 @@ import sys
 import os
 
 if len(sys.argv) != 2:
-    print "Usage: ", sys.argv[0], " <bug-filtered clones>"
+    print("Usage: ", sys.argv[0], " <bug-filtered clones>")
     sys.exit(1)
 
 rs= re.compile('.*Rank score:\s*(-?\d+)\s*\*\s*(\d+)\s*=\s*(-?\d+)\s*buggy score:\s*(-?\d+)\s(-?\d+)\s(-?\d+)\s(-?\d+).*')
@@ -91,11 +91,11 @@ clusters= readclusters( sys.argv[1] )
 clusters.sort( cmp_rank_score )
 
 
-#print len(clusters), 'clusters'
+#print(len(clusters), 'clusters')
 #print
 for (score, cluster) in clusters:
     for line in cluster:
-        print line,
+        print(line,)
     print
 
 

@@ -37,7 +37,7 @@ import re
 import sys
 
 if len(sys.argv) != 2:
-    print "Usage: ", sys.argv[0], " <orig clone reports>"
+    print("Usage: ", sys.argv[0], " <orig clone reports>")
     sys.exit(1)
 
 #required_lines= int(sys.argv[2])
@@ -220,7 +220,7 @@ def cmp_linecount( c1, c2 ):
     return 1
 
 def readclusters( file ):
-#    print file
+#    print(file)
     f= open(file,'r')
     clusters= []
     cluster= []
@@ -265,10 +265,10 @@ clusters= filter( not_empty, clusters )
 # sort clusters by the cloned lines of code
 clusters.sort( cmp_linecount )
 
-# print the result clusters
+# print(the result clusters)
 for cluster in clusters:
     for line in cluster:
-        print line,
+        print(line,)
     print
 
 

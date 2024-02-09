@@ -53,7 +53,7 @@ fileCoverSet={}
 
 for file,linerange  in inputs:
     if linerange[0] > linerange[1]:
-        print "bad linerange:",linerange
+        print("bad linerange:",linerange)
         continue
     if file not in fileCoverSet:
         fileCoverSet[file] = set()
@@ -61,8 +61,8 @@ for file,linerange  in inputs:
 
 sum = 0
 for file,coverset in fileCoverSet.items():
-    #print file,',',coverset
+    #print(file,',',coverset)
     sum += len(coverset)
 
-print sum
+print(sum)
 

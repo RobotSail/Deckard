@@ -43,7 +43,7 @@ import os
 #import shutil
 
 if len(sys.argv) != 2:
-    print "Usage: ", sys.argv[0], " <a bug report>"
+    print("Usage: ", sys.argv[0], " <a bug report>")
     sys.exit(1)
 
 rs= re.compile('.*Rank score:\s*(-?\d+)\s*\*\s*(\d+)\s*=\s*(-?\d+)\s*buggy score:\s*(-?\d+).*')
@@ -70,7 +70,7 @@ def readclusters( file ):
 
 def print_cluster(cluster):
     for line in cluster:
-        print line,
+        print(line,)
 
 def print_clusters(clusters):
     for cluster in clusters:
@@ -144,10 +144,10 @@ for i in range(1,8):
 sum= 0
 for i in range(7):
     sum += len(rankclusters[i])
-    print len(rankclusters[i]),
+    print(len(rankclusters[i]),)
 print
-print "Total bugs: ", sum
-print "Type 1 bugs: ", len(rankclusters[0])+len(rankclusters[2])+len(rankclusters[4])+len(rankclusters[6])
-print "Type 2 bugs: ", len(rankclusters[1])+len(rankclusters[2])+len(rankclusters[5])+len(rankclusters[6])
-print "Type 3 bugs: ", len(rankclusters[3])+len(rankclusters[4])+len(rankclusters[5])+len(rankclusters[6])
+print("Total bugs: ", sum)
+print("Type 1 bugs: ", len(rankclusters[0])+len(rankclusters[2])+len(rankclusters[4])+len(rankclusters[6]))
+print("Type 2 bugs: ", len(rankclusters[1])+len(rankclusters[2])+len(rankclusters[5])+len(rankclusters[6]))
+print("Type 3 bugs: ", len(rankclusters[3])+len(rankclusters[4])+len(rankclusters[5])+len(rankclusters[6]))
 

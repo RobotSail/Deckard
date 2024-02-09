@@ -43,7 +43,7 @@ import os
 #import shutil
 
 if len(sys.argv) != 3:
-    print "Usage: ", sys.argv[0], " <a bug report-src> <another bug report-dest>"
+    print("Usage: ", sys.argv[0], " <a bug report-src> <another bug report-dest>")
     sys.exit(1)
 
 rs= re.compile('.*Rank score:\s*(-?\d+)\s*\*\s*(\d+)\s*=\s*(-?\d+)\s*buggy score:\s*(-?\d+).*')
@@ -68,7 +68,7 @@ def readclusters( file ):
 
 def print_cluster(cluster):
     for line in cluster:
-        print line,
+        print(line,)
 
 def print_clusters(clusters):
     for cluster in clusters:
@@ -146,12 +146,12 @@ def merge_clusters(c1, c2):
         else:
             falseneg = falseneg+1
             for line in c1ranges[i][0]+c1ranges[i][1]+c1ranges[i][2]:
-                print >> sys.stderr, line,
-            print >> sys.stderr
+                print(line,, file=sys.stderr)
+            print(>> sys.stderr)
     newlist=[]
     for i in range(len(c2ranges)):
         newlist.append(c2ranges[i][0]+c2ranges[i][1]+c2ranges[i][2])
-    print >> sys.stderr, "Miss bugs: ", falseneg
+    print("Miss bugs: ", falseneg, file=sys.stderr)
     return newlist
 
 clusters1= readclusters( sys.argv[1] )
@@ -159,7 +159,7 @@ clusters2= readclusters( sys.argv[2] )
 clusters1= buggy_clusters(clusters1)
 merged_clusters=merge_clusters(clusters1, clusters2)
 # mark the output as auto generated:
-print "Auto generated: merging ", len(clusters1), len(clusters2)
+print("Auto generated: merging ", len(clusters1), len(clusters2))
 print_clusters(merged_clusters)
 
 
